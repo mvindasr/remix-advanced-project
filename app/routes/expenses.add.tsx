@@ -1,3 +1,16 @@
+import { useNavigate } from "@remix-run/react";
+import { ExpenseForm } from "~/components/expenses";
+import { Modal } from "~/components/util";
+
 export default function AddExpensesPage() {
-    return <h1>Add Expenses Page</h1>;
+    const navigate = useNavigate();
+    function closeHandler() {
+        // navigate programatically
+        navigate('..');
+    }
+    return (
+        <Modal onClose={closeHandler}>
+            <ExpenseForm/>
+        </Modal>
+    );
 }
